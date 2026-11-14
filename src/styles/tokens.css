@@ -1,0 +1,370 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   LAYER 1: CORE COLORS (Raw brand & neutral palettes, 10+ shades each)
+   Dark grayscale steps strictly follow B4: #000000, #181818, #1F1F1F, #272727, #313131
+   Accent saturation strictly under 80% (~57% mineral copper)
+   ========================================================================== */
+:root {
+  /* Grayscale (0% saturation pure neutral family) */
+  --core-gray-00: #FFFFFF;
+  --core-gray-50: #FAFAFA;
+  --core-gray-100: #F4F4F4;
+  --core-gray-150: #ECECEC;
+  --core-gray-200: #DFDFDF;
+  --core-gray-250: #D1D1D1;
+  --core-gray-300: #C2C2C2;
+  --core-gray-400: #A3A3A3;
+  --core-gray-450: #8F8F8F;
+  --core-gray-500: #767676;
+  --core-gray-600: #575757;
+  --core-gray-700: #404040;
+  --core-gray-750: #313131;
+  --core-gray-800: #272727;
+  --core-gray-850: #1F1F1F;
+  --core-gray-870: #181818;
+  --core-gray-900: #111111;
+  --core-gray-950: #0A0A0A;
+  --core-gray-1000: #000000;
+
+  /* Primary (Mineral Copper, < 60% saturation) */
+  --core-primary-00: #FDF8F5;
+  --core-primary-50: #FAF0EA;
+  --core-primary-100: #F3DFD3;
+  --core-primary-150: #EBCBB8;
+  --core-primary-200: #DFB196;
+  --core-primary-300: #CF8F6B;
+  --core-primary-350: #C67F57;
+  --core-primary-400: #BA6E44;
+  --core-primary-450: #AD5F35;
+  --core-primary-500: #9E522B;
+  --core-primary-600: #874422;
+  --core-primary-700: #6F371B;
+  --core-primary-800: #562A14;
+  --core-primary-850: #472210;
+  --core-primary-900: #381B0C;
+  --core-primary-950: #261208;
+  --core-primary-1000: #140904;
+
+  /* Semantic Status Palettes */
+  --core-red-100: #FCE8E6;
+  --core-red-400: #E06C62;
+  --core-red-500: #C53929;
+  --core-red-700: #8C2318;
+
+  --core-green-100: #E6F4EA;
+  --core-green-400: #5BB974;
+  --core-green-600: #1E7E34;
+  --core-green-700: #155724;
+
+  /* Grayscale-Alpha (Overlay layer targets) */
+  --core-gray-alpha-dark-80: rgba(24, 24, 24, 0.84);
+  --core-gray-alpha-light-80: rgba(250, 250, 250, 0.86);
+  --core-gray-alpha-700-64: rgba(24, 24, 24, 0.68);
+
+  /* Spacing Tokens (B2: strict scale) */
+  --spacing-0: 0px;
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-75: 8px;
+  --spacing-100: 12px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 64px;
+  --spacing-800: 80px;
+  --spacing-900: 96px;
+
+  /* Radius Tokens (B3: Tailwind scale) */
+  --radius-0: 0px;
+  --radius-2: 2px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-full: 9999px;
+}
+
+/* ==========================================================================
+   LAYER 2: COLOR SYSTEM (Semantic aliases — Dark & Light modes)
+   ========================================================================== */
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --surface-canvas: var(--core-gray-1000);       /* #000000 */
+  --surface-primary: var(--core-gray-870);       /* #181818 */
+  --surface-subtle: var(--core-gray-850);        /* #1F1F1F */
+  --surface-secondary: var(--core-gray-800);     /* #272727 */
+  --surface-tertiary: var(--core-gray-750);      /* #313131 */
+  --surface-nav: var(--core-gray-alpha-dark-80);
+  --overlay-lg: var(--core-gray-alpha-700-64);
+
+  --border-primary: var(--core-gray-750);        /* #313131 */
+  --border-strong: var(--core-gray-600);
+  --border-accent: var(--core-primary-450);
+
+  --text-primary: var(--core-gray-50);
+  --text-secondary: var(--core-gray-250);
+  --text-tertiary: var(--core-gray-400);
+  --text-accent: var(--core-primary-300);
+  --text-inverted: var(--core-gray-00);
+  --text-error: var(--core-red-400);
+  --text-success: var(--core-green-400);
+
+  --action-primary: var(--core-primary-500);
+  --action-primary-hover: var(--core-primary-600);
+  --action-primary-active: var(--core-primary-700);
+  --action-subtle: var(--core-gray-800);
+
+  /* B5: Hero Heading text gradient ONLY (#FFFFFF -> #9B9B9B) */
+  --hero-heading-start: #FFFFFF;
+  --hero-heading-end: #9B9B9B;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --surface-canvas: var(--core-gray-00);
+  --surface-primary: var(--core-gray-50);
+  --surface-subtle: var(--core-gray-100);
+  --surface-secondary: var(--core-gray-00);
+  --surface-tertiary: var(--core-gray-150);
+  --surface-nav: var(--core-gray-alpha-light-80);
+  --overlay-lg: var(--core-gray-alpha-700-64);
+
+  --border-primary: var(--core-gray-200);
+  --border-strong: var(--core-gray-400);
+  --border-accent: var(--core-primary-300);
+
+  --text-primary: var(--core-gray-950);
+  --text-secondary: var(--core-gray-700);
+  --text-tertiary: var(--core-gray-600);
+  --text-accent: var(--core-primary-600);
+  --text-inverted: var(--core-gray-00);
+  --text-error: var(--core-red-500);
+  --text-success: var(--core-green-600);
+
+  --action-primary: var(--core-primary-500);
+  --action-primary-hover: var(--core-primary-600);
+  --action-primary-active: var(--core-primary-700);
+  --action-subtle: var(--core-primary-50);
+
+  /* B5: Hero Heading text gradient ONLY (#000000 -> #666666) */
+  --hero-heading-start: #000000;
+  --hero-heading-end: #666666;
+}
+
+@layer base {
+  html {
+    font-family: 'Geist Sans', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    overflow-x: clip;
+  }
+
+  /* B1: Never use italic fonts anywhere in the interface */
+  em, i, cite, address, dfn {
+    font-style: normal;
+  }
+}
+
+/* ==========================================================================
+   NAMED TEXT STYLES (B1: Every text element uses a named style on Tailwind scale)
+   No arbitrary font sizes. No weights above bold (capped at Semibold 600).
+   ========================================================================== */
+@layer components {
+  .heading-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.03em];
+    text-wrap: balance;
+  }
+
+  .heading-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.025em];
+    text-wrap: balance;
+  }
+
+  .heading-3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-[-0.02em];
+    text-wrap: balance;
+  }
+
+  .heading-4 {
+    @apply text-2xl sm:text-3xl font-semibold tracking-[-0.015em];
+    text-wrap: balance;
+  }
+
+  .heading-5 {
+    @apply text-xl sm:text-2xl font-semibold tracking-[-0.015em];
+    text-wrap: balance;
+  }
+
+  .heading-6 {
+    @apply text-xl font-semibold tracking-[-0.01em];
+    text-wrap: balance;
+  }
+
+  .title-1 {
+    @apply text-xl font-medium;
+    text-wrap: balance;
+  }
+
+  .title-2 {
+    @apply text-lg font-medium;
+    text-wrap: balance;
+  }
+
+  .title-3 {
+    @apply text-base font-medium;
+  }
+
+  .title-4 {
+    @apply text-sm font-medium;
+  }
+
+  .title-5 {
+    @apply text-xs font-medium;
+  }
+
+  .body-1 {
+    @apply text-base font-semibold;
+    text-wrap: pretty;
+  }
+
+  .body-2 {
+    @apply text-base font-medium;
+    text-wrap: pretty;
+  }
+
+  .body-3 {
+    @apply text-base font-normal;
+    text-wrap: pretty;
+  }
+
+  .body-4 {
+    @apply text-sm font-semibold;
+    text-wrap: pretty;
+  }
+
+  .body-5 {
+    @apply text-sm font-medium;
+    text-wrap: pretty;
+  }
+
+  .body-6 {
+    @apply text-sm font-normal;
+    text-wrap: pretty;
+  }
+
+  .button-lg {
+    @apply text-lg font-semibold;
+  }
+
+  .button-md {
+    @apply text-base font-semibold;
+  }
+
+  .button-sm {
+    @apply text-sm font-semibold;
+  }
+
+  .button-xsm {
+    @apply text-xs font-semibold;
+  }
+
+  .caption-1 {
+    @apply text-sm font-medium;
+  }
+
+  .caption-2 {
+    @apply text-sm font-normal;
+  }
+
+  .caption-3 {
+    @apply text-xs font-semibold;
+  }
+
+  .caption-4 {
+    @apply text-xs font-medium;
+  }
+
+  .caption-5 {
+    @apply text-xs font-normal;
+  }
+
+  /* B5: Hero Heading Gradient (ONLY permitted gradient on the site — text only) */
+  .hero-heading-gradient {
+    background-image: linear-gradient(90deg, var(--hero-heading-start) 0%, var(--hero-heading-end) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* B2 + B9: Main Button & Secondary Button with full Default/Hover/Active/Focus/Disabled states */
+  .btn-primary {
+    @apply button-md inline-flex items-center justify-center gap-2 rounded-lg py-2 px-3 bg-action-primary text-ink-inverted transition-[transform,background-color,opacity] duration-300 ease-weighted hover:bg-action-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary disabled:opacity-50 disabled:pointer-events-none cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply button-md inline-flex items-center justify-center gap-2 rounded-lg py-2 px-3 bg-surface-secondary border border-border-primary text-ink-primary transition-[transform,background-color,border-color,opacity] duration-300 ease-weighted hover:bg-surface-tertiary hover:border-border-strong active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary disabled:opacity-50 disabled:pointer-events-none cursor-pointer;
+  }
+
+  .btn-header {
+    @apply button-sm inline-flex items-center justify-center gap-2 rounded-lg py-2 px-3 bg-action-primary text-ink-inverted transition-[transform,background-color,opacity] duration-300 ease-weighted hover:bg-action-hover active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary cursor-pointer;
+  }
+
+  .btn-tertiary {
+    @apply button-sm inline-flex items-center gap-2 rounded-lg py-2 px-3 text-ink-secondary hover:text-ink-primary hover:bg-surface-secondary transition-[transform,background-color,color] duration-300 ease-weighted active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-accent cursor-pointer;
+  }
+}
+
+/* Subtle tactile grain texture (no background gradients!) */
+.surface-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+
+/* Tabular numbers utility for data, DOIs, and dates */
+.tabular-data {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scroll reveal animation (B7: rise 32px, 700ms on base curve, once via IntersectionObserver) */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+              transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

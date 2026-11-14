@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LASER Group | Computational &amp; Energy Materials Lab at PSGIAS &amp; PSGiTech</title>
+    <meta
+      name="description"
+      content="Laboratory for Advanced Simulations and Energy Materials Research led by Dr. Sebin Devasia at PSG Institute of Advanced Studies and PSG Institute of Technology and Applied Research, Coimbatore."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#181818" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />
+
+    <!-- Branded Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="/images/pageicon2.png" type="image/png" />
+    <link rel="canonical" href="https://sebind.github.io/laser/" />
+
+    <!-- Open Graph / Social Sharing (B10) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sebind.github.io/laser/" />
+    <meta property="og:site_name" content="LASER Group" />
+    <meta
+      property="og:title"
+      content="LASER Group | Computational &amp; Energy Materials Lab at PSGIAS &amp; PSGiTech"
+    />
+    <meta
+      property="og:description"
+      content="First principles DFT calculations, machine learning interatomic potentials, and lead free thin film optoelectronics at PSG Institute of Advanced Studies and PSG Institute of Technology and Applied Research."
+    />
+    <meta property="og:image" content="https://sebind.github.io/laser/images/dft.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="LASER Group | PSGIAS &amp; PSGiTech"
+    />
+    <meta
+      name="twitter:description"
+      content="Laboratory for Advanced Simulations and Energy Materials Research in Coimbatore, India."
+    />
+    <meta name="twitter:image" content="https://sebind.github.io/laser/images/dft.png" />
+
+    <!-- Theme resolution before first paint -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('laser-theme-mode') || 'system';
+          var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          var resolved = saved === 'system' ? (prefersLight ? 'light' : 'dark') : saved;
+          document.documentElement.setAttribute('data-theme', resolved);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+
+    <!-- Structured Data for SEO & AEO (A7) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ResearchOrganization",
+            "name": "LASER Group — Laboratory for Advanced Simulations and Energy Materials Research",
+            "url": "https://sebind.github.io/laser/",
+            "founder": {
+              "@type": "Person",
+              "name": "Dr. Sebin Devasia",
+              "jobTitle": "Assistant Professor of Physics",
+              "url": "https://spaceofsebin.vercel.app/"
+            },
+            "parentOrganization": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "PSG Institute of Advanced Studies",
+                "url": "https://www.psgias.ac.in/"
+              },
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "PSG Institute of Technology and Applied Research",
+                "url": "https://www.psgitech.ac.in/"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Nano Lab, PSG Institute of Advanced Studies, Peelamedu",
+              "addressLocality": "Coimbatore",
+              "addressRegion": "Tamil Nadu",
+              "postalCode": "641004",
+              "addressCountry": "IN"
+            },
+            "email": "seb@psgias.ac.in",
+            "telephone": "+91-422-4344000"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How is the LASER Group affiliated with PSGIAS and PSGiTech?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Dr. Sebin Devasia holds faculty and research responsibilities across PSG Institute of Advanced Studies (Peelamedu campus, Nano Lab) and PSG Institute of Technology and Applied Research (Neelambur campus) in Coimbatore, connecting computational modelling with experimental thin film synthesis."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who can apply for research internships or thesis projects?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Undergraduate and postgraduate students in Physics, Materials Science, Chemistry, or Chemical Engineering can apply for semester dissertations or summer internships in DFT calculations, machine learning interatomic potentials, or thin film optoelectronics."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What computational codes and tools does the group use?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Our workflows use Quantum ESPRESSO for plane wave DFT, neural network interatomic potentials (MLIPs), SCAPS 1D for heterojunction solar cells, and VESTA, XCrySDen, BURAI, and Python scientific libraries."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
